@@ -1,4 +1,4 @@
-# Manage Identity and Access
+# Secure Networking
 
 ## Exam Preparation
 
