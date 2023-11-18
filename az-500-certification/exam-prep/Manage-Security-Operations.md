@@ -25,15 +25,15 @@ Skills measured as of October 31, 2023
 - **Create, Assign, and Interpret Security Policies and Initiatives in Azure Policy**
   - "Control how people create resources in Azure"
     - Azure Policy does both governance _and_ security
-  - "A policy id a setting"
-    - E.g. can only deploy VMs to UK South / a VM can only be a certain SKU / and so forth
+  - "A policy is a setting"
+    - E.g. (you) can only deploy VMs to UK South / a VM can only be a certain SKU / and so forth
   - "An initiative is a collection of policy settings"
     - E.g. (you could create one called) "VM Creation Initiative"
   - Use the built-in _security policy_ definitions
     - _Or_ create custom ones
   - Create in the ARM Portal via the "Security policy" page
   - To assign policies use Portal / PowerShell / Azure CLI
-  - The default initiative automatically assigned to every subscription in MS Defender for Cloud is _MS Cloud Security Benchmark_
+  - The default initiative automatically assigned to every subscription in Defender for Cloud is the _MS Cloud Security Benchmark_
   - Recommendations are displayed on the "recommendations" page _if_ (your) environment doesn't follow the policies!
 
 - **Configure Security Settings by Using Azure Blueprints**
@@ -42,14 +42,14 @@ Skills measured as of October 31, 2023
     - 1 - Resource Groups
     - 2 - ARM Template
     - 3 - Policy Assignment
-      - NOTE: This is _security_related_
+      - NOTE: This is _security related_!
     - 4 - Role Assignment
-      - NOTE: This is _security_related_
-  - Can use a blueprint for a new sub _or_ to modify an existing sub
+      - NOTE: This is _security related_!
+  - Can use a blueprint for a new subscription _or_ to modify an existing subscription
 
 - **Deploy Security by Using a Landing Zone**
   - "...talking about _migration_ environments"
-  - "Secure landing zone means security controls are in place _before_ resources are deployed"
+  - "A secure landing zone means security controls are in place _before_ resources are deployed"
     - "Plan with security in mind"
   - Adopt IaC + integrate security controls natively into process
   - Deployments of ARM & ALZ Bicep modules require access at tenant root (/) scope
@@ -100,7 +100,7 @@ Skills measured as of October 31, 2023
   - Manage certificates
     - X.509 certificate management
       - Key vault policy can manage certificate _lifecycle_
-        - Provide contact information for _notifications_
+        - Can provide contact information for _notifications_
   - Manage secrets
     - Granular isolation of secrets
     - Can store credential information a secret (value)
@@ -112,7 +112,7 @@ Skills measured as of October 31, 2023
       - Azure Key Vault / Dedicated HSM
         - Manage keys in t' cloud
           - Different use cases
-            - E.g. FIPS compliance mandates Dedicated HSM
+            - E.g. FIPS compliance mandates use of a Dedicated HSM
 
 - **Configure Key Rotation**
   - Can update keys and secrets _without affecting (your) application_
@@ -224,3 +224,84 @@ Skills measured as of October 31, 2023
     - Select the alert then select "View full details"
       - Use "Alert details" + "Take action" tabs to investigate & take actions
         - E.g. mitigate the threat
+
+- **Configure Workflow Automation by Using Microsoft Defender for Cloud**
+  - "Think of Logic Apps like if-then-else statements"
+  - Create a Logic App & define when it should automatically run
+    - In Defender for Cloud, select "Workflow automation"
+      - Enter name / description / triggers
+    - From the "Actions" section, select "Visit the Logic Apps page" to create & configure a Logic App!
+  - Configure _workflow automation at scale_ using supplied policies
+    - Deploy Workflow Automation for Defender for Cloud _alerts_
+    - Deploy Workflow Automation for Defender for Cloud _recommendations_
+    - Deploy Workflow Automation for Defender for Cloud _regulatory compliance_
+
+- **Evaluate Vulnerability Scans from Microsoft Defender for Servers**
+  - There be two vulnerability assessment options
+    - 1 - MS Defender Vulnerability Management
+      - Available in Defender for Servers Plans 1 _and_ 2
+      - Enabled by default on machines onboarded to Defender for Endpoint
+        - _If_ Defender for Endpoint has MS Defender Vulnerability Management enabled
+      - Has the same Windows / Linux / network prerequisites as Defender for Endpoint
+      - No additional software installation required
+    - 2 - Qualys vulnerability scanner
+      - Available in  Defender for Servers Plan 2 _only_
+      - Recommended if using a third party endpoint detection & response (EDR) solution
+        - Or a Fanotify-based solution
+          - What is Fanotify, eh?
+            - See <https://www.man7.org/linux/man-pages/man7/fanotify.7.html>
+      - Doesn't support proxy configuration & can't integrate with an existing Qualys deployment
+        - The findings are visible via Defender for Cloud only
+
+## 4.4 Configure and Manage Security Monitoring and Automation Solutions
+
+- **Monitor Security Events by Using Azure Monitor**
+  - "Under the covers, everything (in Azure) is being monitored & logged"
+    - The default retention period for logs is 30 days
+      - This can be adjusted as required
+  - The _Azure Security baseline for Azure Monitor_ covers areas like
+    - Identity Management
+    - Network Security
+    - Privileged Access
+    - And so forth
+  - "Tools like Defender for Cloud are pulling data out of Azure Monitor via REST APIs"
+
+- **Configure Data Connectors in Microsoft Sentinel**
+  - Sentinel does SIEM _and_ SOAR!
+  - Threat hunting _in real-time_ by examining logs
+  - Need to _enable a data connector_ to "get at" the log data
+  - Integrations for data connectors include
+    - REST API integration
+    - Agent-based integration
+    - Service-to-service integration  
+  - Deploy data connectors as part of a solution
+    - "When the solution comes online, it's automatically being monitored by Sentinel"
+
+- **Create and Customise Analytics Rules in Microsoft Sentinel**
+  - "Thousands of queries already pre-written"
+    - So (you) don't have to start from scratch
+      - Use & adapt the templates!
+  - The workflow is like this
+    - 1 - Create custom analytics rule from a scheduled query
+      - 2 - Define rule query logic & configuration settings
+        - 3 - Configure incident creation settings
+          - 4 - Set automated responses & create the rule
+
+- **Configure Automation in Microsoft Sentinel**
+  - Configure automation rules
+    - Centrally manage automation of _incident handling_
+    - Assign _playbooks_ to incidents & alerts
+    - Automate responses for multiple analytics rules at once
+    - Tag / assign / close incidents automatically without using playbooks
+    - Create lists of tasks for analysts to perform
+    - Control the order of actions that are executed
+    - Apply automation when an incident is updated (currently in Preview) as well as when it's created
+  - Automate using playbooks
+    - Automate & orchestrate (your) _threat response_
+    - Integrate with other systems
+      - Both internal _and_ external
+    - Set playbooks to run automatically in response to specific alerts / incidents
+    - Benefit from the power & customisation offered by Logic Apps!
+      - Integration & orchestration capabilities
+      - Easy-to-use design tools
+      - The scalability, reliability & service level of a Tier 1 Azure service!
