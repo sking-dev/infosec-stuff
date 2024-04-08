@@ -2,11 +2,12 @@
 
 This documentation set is a record of my activities in the FinOps domain, particularly as related to the Microsoft Azure cloud computing platform.
 
-It could be said that I'm shoehorning FinOps into this Information Security repository but I need somewhere quick 'n' easy to put it and Copilot helpfully informs me that there's an _intersection [between] FinOps (Financial Operations) and Information Security_.
+It could be said that I'm shoehorning FinOps into this Information Security repository but I need somewhere quick 'n' easy to put it, and Bing Chat helpfully informs me that there's an "intersection [between] FinOps (Financial Operations) and Information Security".
 
-Here's the full details of the response to my prompt, _Is FinOps part of Information Security_ just so we can check it's not talking out of its, er, hat.
+----
 
-```plaintext
+_Here's the full text of the response to my prompt, _**"Is FinOps part of Information Security?"**_ just so we can check it's not talking out of its, er, hat._
+
 Certainly! Let's delve into the intersection of **FinOps** (Financial Operations) and **Information Security**. These two domains play crucial roles in managing cloud resources effectively and securely. Here's how they intersect:
 
 1. **FinOps in Cybersecurity**:
@@ -32,11 +33,17 @@ Certainly! Let's delve into the intersection of **FinOps** (Financial Operations
 In summary, FinOps and information security are intertwined, with both aiming to optimize cloud operations while maintaining security. Their collaboration ensures a holistic approach to managing cloud resources and costs.
 
 Source: Conversation with Bing, 08/04/2024
-(1) FinOps In Cybersecurity: Managing The Cost Of Security. https://www.cybersecurityintelligence.com/blog/finops-in-cybersecurity-managing-the-cost-of-security-7426.html.
-(2) How finops can make the cloud more secure | InfoWorld. https://www.infoworld.com/article/3712262/how-finops-can-make-the-cloud-more-secure.html.
-(3) How Information Security and Risk Management Teams Can Support FinOps. https://stateofsecurity.com/how-information-security-and-risk-management-teams-can-support-finops/.
-(4) Key 2024 Changes to the FinOps Framework. https://www.finops.org/insights/2024-finops-framework/.
-```
+
+- (1) FinOps In Cybersecurity: Managing The Cost Of Security.
+  - <https://www.cybersecurityintelligence.com/blog/finops-in-cybersecurity-managing-the-cost-of-security-7426.html>.
+- (2) How finops can make the cloud more secure | InfoWorld.
+  - <https://www.infoworld.com/article/3712262/how-finops-can-make-the-cloud-more-secure.html>
+- (3) How Information Security and Risk Management Teams Can Support FinOps.
+  - <https://stateofsecurity.com/how-information-security-and-risk-management-teams-can-support-finops/>
+- (4) Key 2024 Changes to the FinOps Framework.
+  - <https://www.finops.org/insights/2024-finops-framework/>
+
+----
 
 ## Acknowledgements
 
